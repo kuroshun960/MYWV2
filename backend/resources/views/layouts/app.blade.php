@@ -5,8 +5,8 @@
         <title>MyWV</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ asset('/assets/css//mywv.css?334433') }}">
-        <link rel="stylesheet" href="{{ asset('/assets/css//mywv_phone.css?334433') }}">
+        <link rel="stylesheet" href="{{ asset('/assets/css//mywv.css?3344343344113') }}">
+        <link rel="stylesheet" href="{{ asset('/assets/css//mywv_phone.css?3344144133433') }}">
     </head>
 
     <body>

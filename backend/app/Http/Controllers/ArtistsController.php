@@ -132,7 +132,55 @@ public function upload(Request $request)
             ]);
 --------------------------------------------------------------------------*/
             
+        // ログイン前のイメージ画像
+
+        $s3imagesUrl1 = Storage::disk('s3')->url('works/I1LArkAunExDXHKIw4fzyhef3Rz1H2DqFB8aFtO6.jpeg');
+        $s3imagesUrl2 = Storage::disk('s3')->url('works/io6YCtgw8S0GvNrygZT5KC56LDVXQ6gYlgXRM55R.jpeg');
+        $s3imagesUrl3 = Storage::disk('s3')->url('works/JTbjoj0OR2Mno7sy6sp6xrSIxsARlCYjsOx0PJ7A.jpeg');
+        $s3imagesUrl4 = Storage::disk('s3')->url('works/I1LArkAunExDXHKIw4fzyhef3Rz1H2DqFB8aFtO6.jpeg');
+        $s3imagesUrl5 = Storage::disk('s3')->url('works/io6YCtgw8S0GvNrygZT5KC56LDVXQ6gYlgXRM55R.jpeg');
+        $s3imagesUrl6 = Storage::disk('s3')->url('works/JTbjoj0OR2Mno7sy6sp6xrSIxsARlCYjsOx0PJ7A.jpeg');
+        $s3imagesUrl7 = Storage::disk('s3')->url('works/I1LArkAunExDXHKIw4fzyhef3Rz1H2DqFB8aFtO6.jpeg');
+        $s3imagesUrl8 = Storage::disk('s3')->url('works/io6YCtgw8S0GvNrygZT5KC56LDVXQ6gYlgXRM55R.jpeg');
+        $s3imagesUrl9 = Storage::disk('s3')->url('works/JTbjoj0OR2Mno7sy6sp6xrSIxsARlCYjsOx0PJ7A.jpeg');
+        $s3imagesUrl10 = Storage::disk('s3')->url('works/I1LArkAunExDXHKIw4fzyhef3Rz1H2DqFB8aFtO6.jpeg');
+        $s3imagesUrl11 = Storage::disk('s3')->url('works/io6YCtgw8S0GvNrygZT5KC56LDVXQ6gYlgXRM55R.jpeg');
+        $s3imagesUrl12 = Storage::disk('s3')->url('works/JTbjoj0OR2Mno7sy6sp6xrSIxsARlCYjsOx0PJ7A.jpeg');
+        $s3imagesUrl13 = Storage::disk('s3')->url('works/I1LArkAunExDXHKIw4fzyhef3Rz1H2DqFB8aFtO6.jpeg');
+        $s3imagesUrl14 = Storage::disk('s3')->url('works/io6YCtgw8S0GvNrygZT5KC56LDVXQ6gYlgXRM55R.jpeg');
+        $s3imagesUrl15 = Storage::disk('s3')->url('works/JTbjoj0OR2Mno7sy6sp6xrSIxsARlCYjsOx0PJ7A.jpeg');
+        $s3imagesUrl16 = Storage::disk('s3')->url('works/I1LArkAunExDXHKIw4fzyhef3Rz1H2DqFB8aFtO6.jpeg');
+        $s3imagesUrl17 = Storage::disk('s3')->url('works/io6YCtgw8S0GvNrygZT5KC56LDVXQ6gYlgXRM55R.jpeg');
+        $s3imagesUrl18 = Storage::disk('s3')->url('works/JTbjoj0OR2Mno7sy6sp6xrSIxsARlCYjsOx0PJ7A.jpeg');
+        
+
+
+        $imageUrl = [];
+        $imageUrl = [
+            $s3imagesUrl1,
+            $s3imagesUrl2,
+            $s3imagesUrl3,
+            $s3imagesUrl4,
+            $s3imagesUrl5,
+            $s3imagesUrl6,
+            $s3imagesUrl7,
+            $s3imagesUrl8,
+            $s3imagesUrl9,
+            $s3imagesUrl10,
+            $s3imagesUrl11,
+            $s3imagesUrl12,
+            $s3imagesUrl13,
+            $s3imagesUrl14,
+            $s3imagesUrl15,
+        ];
+        shuffle($imageUrl);
+
+
+
+
+        // ログイン後
         $data = [];
+
         if (\Auth::check()) {
             // 認証済みユーザ（閲覧者）を取得
             $user = \Auth::user();
@@ -143,10 +191,15 @@ public function upload(Request $request)
                 'user' => $user,
                 'follows' => $followingArtist,
             ];
+
+            // Welcomeビューでそれらを表示
+            return view('welcome', $data);
+        }else{
+
+            return view('welcome', compact('imageUrl'));
+
         }
 
-        // Welcomeビューでそれらを表示
-        return view('welcome', $data);
             
     }
     
