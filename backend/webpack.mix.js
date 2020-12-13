@@ -11,7 +11,15 @@ const mix = require('laravel-mix');
  |
  */
 
+/*
+ mix.js(出力元、出力先（出力名は元のが引き継がれる）
+
+ app.jsにまとめたい場合、resources/js/app.jsにて import "hoge.js"を記載
+*/
+
 mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/dropify.js', 'public/js')
+    .js('resources/js/dropify.min.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);
