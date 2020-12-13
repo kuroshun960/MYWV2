@@ -20,6 +20,13 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/dropify.js', 'public/js')
     .js('resources/js/dropify.min.js', 'public/js')
+    .styles([
+        'resources/css/mywv.css',
+        'resources/css/mywv_phone.css'
+    ], 'public/css/all.css')
+    .autoload({
+        "jquery": ['$', 'window.jQuery']
+      })
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);
