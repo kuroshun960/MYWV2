@@ -38,14 +38,48 @@
         <br>
         {!! Form::label('file', '画像ファイル:') !!}
         {!! Form::file('file', ['class' => 'form-control']) !!}
+
+
         <br>
         {!! Form::submit('アーティストを登録', ['class' => 'btn btn-primary btn-block']) !!}
+
+
         
     </div>
 {!! Form::close() !!}
 
-
-
+<div class="dropify-wrapper">
+    <div class="dropify-message">
+        <span class="file-icon"></span>
+        <p>Drag and drop a file here or click</p>
+        <p class="dropify-error">Ooops, something wrong appended.</p>
+    </div>
+    <div class="dropify-loader"></div>
+    <div class="dropify-errors-container">
+        <ul></ul>
+    </div>
+    <input type="file" id="input-file-now" class="dropify">
+    <button type="button" class="dropify-clear">Remove</button>
+    <div class="dropify-preview">
+        <span class="dropify-render"></span>
+        <div class="dropify-infos">
+            <div class="dropify-infos-inner">
+                <p class="dropify-filename">
+                    <span class="file-icon"></span> <span class="dropify-filename-inner"></span>
+                </p>
+                <p class="dropify-infos-message">Drag and drop or click to replace</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 </div>
+
+
+<script>
+	$(document).ready(function(){
+		$('.dropify').dropify();
+	});
+</script>
+
 @endsection
